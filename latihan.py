@@ -1,4 +1,3 @@
-from ast import And
 import requests
 from bs4 import BeautifulSoup
 
@@ -22,5 +21,12 @@ for job_element in job_elements:
 designer =  results.find_all(
     "h2", string=lambda text: "designer" in text.lower()
 )
-a = "total designer job"
+for job_element in job_elements:
+    title_element = job_element.find("h2", class_="title")
+    print(title_element.text.strip())
+    print( )
+
+print("designer total job = ", end=" ")
 print(len(designer)) 
+
+
